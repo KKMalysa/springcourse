@@ -21,7 +21,7 @@ public class Damsel {
 
     @Override
     public String toString(){
-        return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to " + quest;
+        return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to: " + quest;
     }
 }
 

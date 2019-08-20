@@ -18,18 +18,23 @@ public class Starter implements CommandLineRunner {
     @Override
     public void run (String... args) throws Exception {
 
-        Quest damselRescueQuest = new Quest("Uratuj księżniczkę");      // <---- *1
+        Quest damselRescueQuest = new Quest("Uratuj księżniczkę.");      // <---- *1
         Knight JarvanIV = new Knight("Jarvan", 27, damselRescueQuest); // <---- *2
-        System.out.println();
+        System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println(JarvanIV);
 
-        Quest dragonSlayer = new Quest("Zabij smoka");
-        Knight Garen = new Knight("Garen", 31, dragonSlayer);
-        System.out.println(Garen);
+        Quest dragonSlayer = new Quest("Zabij smoka.");
+        Knight Garen = new Knight("Garen", 31);
+        System.out.println();
+        System.out.println(Garen + "- - - - - - - Before quest injection - - -");
+        Garen.setQuest(dragonSlayer);
+        System.out.println(Garen + "- - - After quest injection - - -");
 
-        Quest turnIntoDragon = new Quest("Zmienianie się w smoka");
+        Quest turnIntoDragon = new Quest("zmienianie się w smoka.");
         Damsel Shyvana = new Damsel("Shyvana",17, turnIntoDragon);
+        System.out.println();
         System.out.println(Shyvana);
+        System.out.println("--------------------------------------------------------------------------------------------");
 
     }
 }
