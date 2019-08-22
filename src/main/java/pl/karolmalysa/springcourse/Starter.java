@@ -6,6 +6,9 @@ import pl.karolmalysa.springcourse.domain.Damsel;
 import pl.karolmalysa.springcourse.domain.Knight;
 import pl.karolmalysa.springcourse.domain.Quest;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /** WSTRZYKIWANIE ZALEŻNOŚCI PRZEZ KONSTRUKTOR
  *
  * Korzystając z konstruktora zaimportowanej tu klasy Quest tworzę tutaj jego obiekt, <---- *1

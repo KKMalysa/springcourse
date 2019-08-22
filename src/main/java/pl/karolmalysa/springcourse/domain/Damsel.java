@@ -1,5 +1,8 @@
 package pl.karolmalysa.springcourse.domain;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * dla treningu i dodania tej historii odrobiny dramaturgii, postanowiłem utworzyć naszą księżniczkę,
  * tak, żeby rucerz Jarvan miał kogo ratować ;)
@@ -23,5 +26,6 @@ public class Damsel {
     public String toString(){
         return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to: " + quest;
     }
+
 }
 
