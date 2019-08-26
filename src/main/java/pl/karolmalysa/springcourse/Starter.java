@@ -1,13 +1,13 @@
 package pl.karolmalysa.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import pl.karolmalysa.springcourse.domain.Castle;
 import pl.karolmalysa.springcourse.domain.Damsel;
 import pl.karolmalysa.springcourse.domain.Knight;
 import pl.karolmalysa.springcourse.domain.Quest;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 /** WSTRZYKIWANIE ZALEŻNOŚCI PRZEZ KONSTRUKTOR
  *
@@ -18,9 +18,14 @@ import javax.annotation.PreDestroy;
  */
 @Component
 public class Starter implements CommandLineRunner {
+
+    @Autowired       // W mega skrócie: ta adnotacja pozwala wstrzykiwać jedne Beansy do drugich. Notatki rozdział 2_3
+    Castle castle;
+
     @Override
     public void run (String... args) throws Exception {
 
+        System.out.println(castle);
         Quest damselRescueQuest = new Quest("Uratuj księżniczkę.");      // <---- *1
         Knight JarvanIV = new Knight("Jarvan", 27, damselRescueQuest); // <---- *2
         System.out.println("--------------------------------------------------------------------------------------------");
@@ -33,11 +38,11 @@ public class Starter implements CommandLineRunner {
         Garen.setQuest(dragonSlayer);
         System.out.println(Garen + "- - - After quest injection - - -");
 
-        Quest turnIntoDragon = new Quest("zmienianie się w smoka.");
-        Damsel Shyvana = new Damsel("Shyvana",17, turnIntoDragon);
+        Damsel Shyvana = Damsel.getInstance();
         System.out.println();
         System.out.println(Shyvana);
         System.out.println("--------------------------------------------------------------------------------------------");
 
     }
+
 }

@@ -1,25 +1,35 @@
 package pl.karolmalysa.springcourse.domain;
 
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * dla treningu i dodania tej historii odrobiny dramaturgii, postanowiłem utworzyć naszą księżniczkę,
- * tak, żeby rucerz Jarvan miał kogo ratować ;)
- * Ale jej aktualne zajęcie, to zamienianie się w smoka, tak, żeby rycerz Garen miał kogo zaszlachtować :D
- * Jak ta historia otoczy się dalej?                   TEGO DOWIECIE SIĘ W NASTĘPNYM ODCINKU :D
+ * Klasa stworzona dla treningu, zabawy i dodania tej historii odrobiny dramaturgii,
+ * żeby rucerz Jarvan miał kogo ratować ;)
+ * Jej aktualne zajęcie, to zamienianie się w smoka, tak, żeby rycerz Garen miał kogo zaszlachtować :D
+ * Jak ta historia otoczy się dalej?
  */
-
+@Component
 public class Damsel {
-    private String name;
-    private int age;
+    private String name ="Shyvana";
+    private int age = 17;
+    private Quest quest = new Quest("zmienianie się w smoka.");
 
-    private Quest quest;
+    private static Damsel instance = new Damsel();
 
-    public Damsel(String name, int age, Quest quest) {
-        this.name = name;
-        this.age = age;
-        this.quest = quest;
+    public Damsel() {
+
+    }
+
+    @PostConstruct
+    public void born(){
+        System.out.println("Księżniczka "+ name + " urodziła się");
+    }
+    @PreDestroy
+    public void death(){
+        System.out.println("Księżniczka "+name+" zaraz umrze, bo zatruła się dlugo niemytym rycerzem :D ");
     }
 
     @Override
@@ -27,5 +37,9 @@ public class Damsel {
         return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to: " + quest;
     }
 
+    public static Damsel getInstance(){
+
+        return instance;
+    }
 }
 
