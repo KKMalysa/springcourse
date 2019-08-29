@@ -15,7 +15,7 @@ import javax.annotation.PreDestroy;
 public class Damsel {
     private String name ="Shyvana";
     private int age = 17;
-    private Quest quest = new Quest("zmienianie się w smoka.");
+//    private Quest quest = new Quest("zmienianie się w smoka.");
 
     private static Damsel instance = new Damsel();
 
@@ -23,18 +23,18 @@ public class Damsel {
 
     }
 
-    @PostConstruct
-    public void born(){
-        System.out.println("Księżniczka "+ name + " urodziła się");
-    }
-    @PreDestroy
-    public void death(){
-        System.out.println("Księżniczka "+name+" zaraz umrze, bo zatruła się dlugo niemytym rycerzem :D ");
-    }
+//    @PostConstruct
+//    public void born(){
+//        System.out.println("Księżniczka "+ name + " urodziła się");
+//    }
+//    @PreDestroy
+//    public void death(){
+//        System.out.println("Księżniczka "+name+" zaraz umrze, bo zatruła się dlugo niemytym rycerzem :D ");
+//    }
 
     @Override
     public String toString(){
-        return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to: " + quest;
+        return "Księżniczka " + name + " (lat " + age + "). Jej aktualne zajęcie to: ";
     }
 
     public static Damsel getInstance(){
