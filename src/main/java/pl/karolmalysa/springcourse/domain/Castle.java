@@ -14,11 +14,23 @@ public class Castle {
 
     @Value("${my.castle.name}")
     private String name;
+
     Knight knight;
 
     @Autowired
     public Castle(Knight knight) {
         this.knight=knight;
+    }
+
+    /**
+     * Konstruktor wstrzykujący na potrzeby klasy testowej po to, by wstrzyknięte do klasy Castle dane
+     * działały również w testach.
+     * @param knight
+     * @param name
+     */
+    Castle(Knight knight, String name ){
+        this.knight = knight;
+        this.name = name;
     }
 
     @PostConstruct
@@ -32,7 +44,7 @@ public class Castle {
 
     @Override
     public String toString(){
-        return "   Oto zamek o nazwie "+ this.name +", w którym mieszka "+knight+". Jeśli to czytasz, to znaczy, że wstrzyknięcie prymitywów do Knight, Knight do Castle i Castle do Starter się powiodło. <-------------------------------------------------- TO TUTAJ! -------------TUTAJ TO TOTO! --------O! TU TO, WIDZISZ?";
+        return "   Oto zamek o nazwie "+ this.name +", w którym mieszka "+knight;
     }
 
 }
