@@ -3,7 +3,6 @@ package pl.karolmalysa.springcourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.karolmalysa.component.TestComponent;
 import pl.karolmalysa.springcourse.domain.Castle;
 import pl.karolmalysa.springcourse.domain.Damsel;
 import pl.karolmalysa.springcourse.domain.Knight;
@@ -23,8 +22,6 @@ public class Starter implements CommandLineRunner {
     @Autowired       // W mega skrócie: ta adnotacja pozwala wstrzykiwać jedne Beansy do drugich. Notatki rozdział 2_3
     Castle castle;
 
-    @Autowired
-    TestComponent test;
 
     @Override
     public void run (String... args) throws Exception {

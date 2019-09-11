@@ -6,13 +6,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 
-@Component
-@PropertySource("classpath:knight.properties")
+
+
 public class Knight {
-//    @Value("${my.knight.name:Wartość Domyślna}")      // ta adnotacja służy do wstrzykiwania typów prymitywnych znajdujących się w pliku properties
-    private String name = "Skrzetuski";
-//    @Value("57")            // a to "na sztywno", to jest równoznaczne z private int age = 57; zamiast tej adnotacji
-    private int age = 57;
+
+    private String name;
+    private int age;
 
     private Quest quest;
 //
@@ -26,13 +25,13 @@ public class Knight {
 
     }
 
-//    public Knight(String name, int age) {
-//        this.name=name;
-//        this.age=age;
-//    }
+    public Knight(String name, int age) {
+        this.name=name;
+        this.age=age;
+    }
 
     @Autowired
-    public void setQuest(Quest quest) {
+    public void setQuest(Quest quest) {                          //metoda wstrzykująca
         System.out.println("Rycerz dostaje zadanie.");
         this.quest= quest;
     }
