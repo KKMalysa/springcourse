@@ -16,7 +16,7 @@ import pl.karolmalysa.springcourse.domain.Quest;
  *
  * Dzięki temu nie muszę tworzyć nowej klasy dla każdego questa.
  */
-@Component
+@Component  ("starter")
 public class Starter implements CommandLineRunner {
 
     @Autowired       // W mega skrócie: ta adnotacja pozwala wstrzykiwać jedne Beansy do drugich. Notatki rozdział 2_3
