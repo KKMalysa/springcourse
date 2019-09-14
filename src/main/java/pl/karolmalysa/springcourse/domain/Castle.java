@@ -4,20 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-//@Component
-//@PropertySource("classpath:castle.properties")
+@Component
 public class Castle {
 
-//    @Value("${my.castle.name}")
+    @Value("${my.castle.name}")
     private String name;
 
     Knight knight;
 
-//    @Autowired
+    @Autowired
     public Castle(Knight knight) {
         this.knight=knight;
     }
