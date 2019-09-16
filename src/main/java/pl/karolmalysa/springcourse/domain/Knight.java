@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype") //za każdym razem, kiedy inny bean ma zależność rycerza, jest tam wstrzykiwana nowa instancja tej klasy.
+//@Component
+//@Scope("prototype") //za każdym razem, kiedy inny bean ma zależność rycerza, jest tam wstrzykiwana nowa instancja tej klasy.
 public class Knight {
 
     private String name;

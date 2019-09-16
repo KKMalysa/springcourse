@@ -1,12 +1,16 @@
 package pl.karolmalysa.springcourse.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+/**    Z-A-G-A-D-K-A-!
+ * przyjrzyj się tej klasie i przed uruchomieniem zgadnij który rycerz będzie w zamku? ;)
+ */
 @Component
 public class Castle {
 
@@ -16,7 +20,7 @@ public class Castle {
     Knight knight;
 
     @Autowired
-    public Castle(Knight knight) {
+    public Castle(@Qualifier(value="sirColder")Knight knight) {
         this.knight=knight;
     }
 
