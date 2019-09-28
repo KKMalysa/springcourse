@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 //@Component
 //@Scope("prototype") //za każdym razem, kiedy inny bean ma zależność rycerza, jest tam wstrzykiwana nowa instancja tej klasy.
 public class Knight {
@@ -21,6 +23,19 @@ public class Knight {
     public Knight(String name, int age) {
         this.name=name;
         this.age=age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Knight knight = (Knight) o;
+        return age == knight.age;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age);
     }
 
     public void setAge(int age) {

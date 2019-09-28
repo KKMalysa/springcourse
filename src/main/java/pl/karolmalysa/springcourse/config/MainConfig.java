@@ -1,11 +1,9 @@
 package pl.karolmalysa.springcourse.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
 import pl.karolmalysa.springcourse.domain.Knight;
 import pl.karolmalysa.springcourse.domain.Quest;
 
@@ -31,6 +29,13 @@ public class MainConfig {
         Garen.setQuest(quest);
 
         return Garen;
+    }
+    @Bean(name = "Spejson")
+    public Knight createSpejsonBean(){
+        Knight Spejson = new Knight("Spejson", 19);
+        Spejson.setQuest(quest);
+
+        return Spejson;
     }
 
 }

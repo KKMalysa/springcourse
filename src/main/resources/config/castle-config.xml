@@ -16,7 +16,12 @@
     </bean>
 
     <bean id="tournament" class="pl.karolmalysa.springcourse.domain.Tournament">
-       <property name="knight" ref="Garen"/> <!-- z tym że do tego potrzebny seter knight:knight w Tournamencie -->
-    </bean> <!-- przypomnienie w XMLU nie ma wstrzykiwania do pól, musi być metoda np. seter  !!!!!!!!!!!!!!!!!  -->
+       <property name="knights">
+           <list>
+               <ref bean="Garen"/>
+               <ref bean="Spejson"/>
+           </list>
+       </property>
+    </bean>
 
 </beans>
