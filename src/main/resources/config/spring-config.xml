@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
     <!-- bean definitions here -->
 
         <context:component-scan base-package="pl.karolmalysa.springcourse"/>
         <context:property-placeholder location="classpath:knightRepository.properties"/>
         <import resource="classpath:config/castle-config.xml"/>
 
-        <bean id="quest" class="pl.karolmalysa.springcourse.domain.Quest" scope="prototype"/> <!-- OD TEJ PORY QUEST JEST BEANEM -->
+
 
         <bean id="sirColder" class="pl.karolmalysa.springcourse.domain.Knight" primary="true">
                <constructor-arg index="0" value="Sir Colder"/> <!-- wstrzykiwanie danych na sztywno -->
                <constructor-arg index="1" value="57"/>
-            <property name="quest" ref="quest"/> <!-- wstrzykiwanie zależności RYCERZ MA QUESTA -->
+
         </bean>
 
         <bean id="Garen" class="pl.karolmalysa.springcourse.domain.Knight">
                <constructor-arg index="0" value="Garen"/> <!-- wstrzykiwanie danych na sztywno -->
                <constructor-arg index="1" value="31"/>
-            <property name="quest" ref="quest"/> <!-- wstrzykiwanie zależności RYCERZ MA QUESTA -->
+
         </bean>               <!-- zależność wstrzyknięta przez metodę wstrzykującą "setQuest" w klasie Knight -->
 
+    <task:scheduler id="myScheduler" pool-size="10"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="questRepository" method="createRandomQuests" fixed-rate="1000"/>
+    </task:scheduled-tasks>
 </beans>
