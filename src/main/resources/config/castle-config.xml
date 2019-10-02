@@ -6,9 +6,9 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- bean definitions here -->
 
-    <context:property-placeholder location="classpath:castle.properties"/>
+    <context:property-placeholder location="classpath:knightRepository.properties"/>
 
-    <bean id="zamek" class="pl.karolmalysa.springcourse.domain.Castle"
+    <bean id="zamek" class="pl.karolmalysa.springcourse.domain.repository.KnightRepository"
           init-method="build"
           destroy-method="tearDown">
         <constructor-arg index="0" ref="sirColder"/>
@@ -17,10 +17,10 @@
 
     <bean id="tournament" class="pl.karolmalysa.springcourse.domain.Tournament">
        <property name="knights">
-           <list>
-               <ref bean="Garen"/>
-               <ref bean="Spejson"/>
-           </list>
+           <map>
+               <entry key="Garen" value-ref="Garen"/>
+               <entry key="Spejson" value-ref="Spejson"/>
+           </map>
        </property>
     </bean>
 

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 
 @SpringBootApplication
-@PropertySource("classpath:castle.properties")
+@PropertySource("classpath:knightRepository.properties")
 public class SpringcourseApplication {
 
 	public static void main(String[] args) {

@@ -46,7 +46,7 @@ public class Knight {
         return age;
     }
 
-    @Autowired
+
     public void setQuest(Quest quest) {                          //metoda wstrzykująca
         System.out.println("Rycerz dostaje zadanie.");
         this.quest= quest;

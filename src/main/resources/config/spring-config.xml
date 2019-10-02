@@ -7,7 +7,7 @@
     <!-- bean definitions here -->
 
         <context:component-scan base-package="pl.karolmalysa.springcourse"/>
-        <context:property-placeholder location="classpath:castle.properties"/>
+        <context:property-placeholder location="classpath:knightRepository.properties"/>
         <import resource="classpath:config/castle-config.xml"/>
 
         <bean id="quest" class="pl.karolmalysa.springcourse.domain.Quest" scope="prototype"/> <!-- OD TEJ PORY QUEST JEST BEANEM -->
