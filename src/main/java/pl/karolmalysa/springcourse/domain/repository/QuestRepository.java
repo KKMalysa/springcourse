@@ -58,7 +58,6 @@ public class QuestRepository {
         descriptions.add("Zbadaj mroczny las");
 
         String description = descriptions.get(rand.nextInt(descriptions.size()));
-        System.out.println("Utworzono zadanie: " + description);
         createQuest(description);
     }
 

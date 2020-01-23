@@ -6,22 +6,10 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- bean definitions here -->
 
-    <context:property-placeholder location="classpath:knightRepository.properties"/>
 
-    <bean id="zamek" class="pl.karolmalysa.springcourse.domain.repository.KnightRepository"
-          init-method="build"
-          destroy-method="tearDown">
-        <constructor-arg index="0" ref="sirColder"/>
-        <property name="name" value="${my.castle.name}"/>
+
+    <bean id="knightRepository" class="pl.karolmalysa.springcourse.domain.repository.InMemoryRepository" init-method="build">
     </bean>
 
-    <bean id="tournament" class="pl.karolmalysa.springcourse.domain.Tournament">
-       <property name="knights">
-           <map>
-               <entry key="Garen" value-ref="Garen"/>
-               <entry key="Spejson" value-ref="Spejson"/>
-           </map>
-       </property>
-    </bean>
 
 </beans>

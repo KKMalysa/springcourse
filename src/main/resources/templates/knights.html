@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Knights list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        Aktualny czas <p th:text="${timecomponent.time}"/>
+        Posiadane złoto <p th:text="${playerInformation.gold}"/>
+
+        <table class="table">
+            <thead>
+                 <tr>
+                     <td><b>Imie rycerza</b></td>
+                     <td><b>Poziom</b></td>
+                     <td> </td>
+                 </tr>
+            </thead>
+                <tbody th:each="knight  : ${knights}">
+                <tr>
+                    <td th:text="${knight.name}"></td>
+                    <td th:text="${knight.level}"></td>
+                    <td><a th:href="${'/knight?id='+knight.id}">Podgląd</a></td>
+                    <td><a th:href="${'/knight/delete/'+knight.id}">Usun</a></td>
+                </tr>
+                </tbody>
+        </table>
+        <div class="row">
+            <a href="/newknight ">Zrekrutuj nowego rycerza </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,28 +1,33 @@
 package pl.karolmalysa.springcourse.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
-//@Component
-//@Scope("prototype") //za każdym razem, kiedy inny bean ma zależność rycerza, jest tam wstrzykiwana nowa instancja tej klasy.
+
 public class Knight {
 
-    private String name;
-    private int age;
 
+    private int id;
+    @NotNull
+    @Size(min = 2, max = 40, message = "Imie rycerza musi mieć między 2, a 40 znaków")
+    private String name;
+    @NotNull
+    @Range(min = 16, max = 67)
+    private int age;
+    private int level;
     private Quest quest;
 
     public Knight(){
-        this.name="Sir Colder";
-        this.age=57;
+
     }
 
     public Knight(String name, int age) {
-        this.name=name;
-        this.age=age;
+        this.name = name;
+        this.age = age;
+        this.level = 1;
     }
 
     @Override
@@ -52,6 +57,29 @@ public class Knight {
         this.quest= quest;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     @Override
     public String toString() {
